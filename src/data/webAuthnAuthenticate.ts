@@ -1,5 +1,7 @@
 import Alpine from 'alpinejs';
 import { base64url } from 'rfc4648';
+import { toArrayBuffer } from '../utils/buffer';
+
 
 type DataType = {
   $refs: RefsType;
@@ -58,7 +60,7 @@ document.addEventListener('alpine:init', () => {
       }
 
       const publicKey: PublicKeyCredentialRequestOptions = {
-        challenge: base64url.parse(challenge, { loose: true }),
+        challenge: toArrayBuffer(base64url.parse(challenge, { loose: true })),
         rpId: rpId,
       };
 
@@ -121,7 +123,7 @@ document.addEventListener('alpine:init', () => {
           authnSelectFormElements.forEach((element) => {
             if (element instanceof HTMLInputElement) {
               allowCredentials.push({
-                id: base64url.parse(element.value, { loose: true }),
+                id: toArrayBuffer(base64url.parse(element.value, { loose: true })),
                 type: 'public-key',
               });
             }

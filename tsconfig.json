@@ -2,6 +2,10 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "allowImportingTsExtensions": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
     "isolatedModules": true,
     "lib": ["ESNext", "DOM"],
     "module": "ESNext",
@@ -12,6 +16,7 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "jsx": "react-jsx",
     "strict": true,
     "target": "ESNext",
     "useDefineForClassFields": true

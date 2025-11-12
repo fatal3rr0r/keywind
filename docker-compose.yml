@@ -1,0 +1,21 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0
+    command:
+      - start-dev
+      - --spi-theme-static-max-age=-1
+      - --spi-theme-cache-themes=false
+      - --spi-theme-cache-templates=false
+    environment:
+      KC_DB: dev-mem
+      KC_HOSTNAME: localhost
+      environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    ports:
+      - "3005:8080"
+    volumes:
+      # Monte le thème keywind (tel quel)
+      - ./theme/keywind:/opt/keycloak/themes/keywind:ro
+      # Monte ton thème enfant valpine (modifiable en live)
+      - ./themes/valpine:/opt/keycloak/themes/valpine
