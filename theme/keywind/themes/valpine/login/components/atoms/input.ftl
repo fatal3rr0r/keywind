@@ -40,7 +40,7 @@
           @click="show = !show"
           aria-controls="${name}"
           :aria-expanded="show"
-          class="absolute kw-input-icon inset-y-0 right-3 flex items-center"
+          class="absolute kw-input-icon right-3 top-3 sm:top-2"
           type="button"
         >
           <div x-show="!show">
@@ -68,6 +68,11 @@
           ${attrName}="${attrValue}"
         </#list>
       >
+    </#if>
+    <#if invalid?? && message??>
+      <div class="kw-input-error mt-2 text-sm">
+        ${message?no_esc}
+      </div>
     </#if>
   </div>
 </#macro>

@@ -8,6 +8,7 @@ export default defineConfig({
         'src/data/recoveryCodes.ts',
         'src/data/webAuthnAuthenticate.ts',
         'src/data/webAuthnRegister.ts',
+        'src/valpine.css',
       ],
       output: {
         assetFileNames: '[name][extname]',

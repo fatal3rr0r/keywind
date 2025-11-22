@@ -4,7 +4,7 @@
   <div class="kw-idp-label pt-4 separate text-sm">
     ${msg("identity-provider-login-label")}
   </div>
-  <div class="kw-idp-grid grid grid-cols-3 justify-items-center">
+  <div class="kw-idp-grid grid grid-cols-3">
     <#list providers as provider>
       <#switch provider.alias>
         <#case "apple">
@@ -68,15 +68,13 @@
         href="${provider.loginUrl}"
         type="button"
       >
-        <div class="flex items-center justify-center h-10 w-10">
-          <#if providerIcons[provider.alias]??>
-            <div class="h-6 w-6">
-              <@providerIcons[provider.alias] />
-            </div>
-          <#else>
-            ${provider.displayName!}
-          </#if>
-        </div>
+        <#if providerIcons[provider.alias]??>
+          <div class="h-6 w-6">
+            <@providerIcons[provider.alias] />
+          </div>
+        <#else>
+          ${provider.displayName!}
+        </#if>
       </a>
     </#list>
   </div>
